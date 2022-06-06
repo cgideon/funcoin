@@ -24,5 +24,8 @@ class Server:
         
         logger.info(f"Server listening on {hostname}:{port}")
         
+        self.external_ip = await self.get_external_ip()
+        self.external_port = 8888
+        
         async with server:
             await server.serve_forever()
